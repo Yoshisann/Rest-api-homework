@@ -1,10 +1,12 @@
 package com.example.demo;
 
 
+import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -13,10 +15,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class RestMovieController
 {
+    @Autowired
+    private MovieDao movieDao;
 
-    @GetMapping("/info")
-    public ResponseEntity<String> testGet()
+
+    @PostMapping("/createMovie")
+    public ResponseEntity<Movie> createMovie(@RequestBody Movie b)
     {
-        return ResponseEntity.ok("Eu sunt un response");
+        return ResponseEntity.ok(this.movieDao.createMovie(b));
+    }
+
+    @GetMapping("/getMovie/{movieid}")
+    public ResponseEntity<Movie> getMovie(@PathVariable long movieid)
+    {
+        return ResponseEntity.ok(this.movieDao.getMovie(movieid));
+    }
+    @GetMapping("/Movies")
+    public ResponseEntity<List<Movieid>> getallMovies()
+    {
+        return ResponseEntity.ok(this.movieDao.getAll());
+    }
+    @PutMapping("/updateMovie")
+    public ResponseEntity<String> updateMovie()
+    {
+        return ResponseEntity.ok("Update");
+    }
+    @DeleteMapping("/deleteMovie")
+    public ResponseEntity<String> deleteMovie()
+    {
+        return ResponseEntity.ok("Deleted");
     }
 }
