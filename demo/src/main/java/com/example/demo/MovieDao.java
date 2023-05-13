@@ -27,6 +27,18 @@ public class MovieDao {
         return null;
     }
 
+    public boolean deleteMovies(long id)
+    {
+        for(int i = 0; i < this.movies.size();i++)
+        {
+            if(this.movies.remove(this.movies.get(i)))
+            {
+
+            }
+        }
+        return false;
+    }
+
     public List<Movieid> getAll() {
         return this.movies;
     }

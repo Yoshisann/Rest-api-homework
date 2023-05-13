@@ -41,8 +41,8 @@ public class RestMovieController
         return ResponseEntity.ok("Update");
     }
     @DeleteMapping("/deleteMovie")
-    public ResponseEntity<String> deleteMovie()
+    public ResponseEntity<Boolean> deleteMovie(@PathVariable long movieid)
     {
-        return ResponseEntity.ok("Deleted");
+        return ResponseEntity.ok(this.movieDao.deleteMovies(movieid));
     }
 }

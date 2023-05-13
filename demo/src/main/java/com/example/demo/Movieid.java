@@ -33,10 +33,6 @@ public class Movieid
         {
             return false;
         }
-        if (this.equals(object))
-        {
-            return true;
-        }
         Movieid toCompare = (Movieid) object;
         return this.name.equals(toCompare.name) && this.genre.equals(toCompare.genre);
     }
