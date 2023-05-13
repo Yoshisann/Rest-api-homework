@@ -31,9 +31,9 @@ public class MovieDao {
     {
         for(int i = 0; i < this.movies.size();i++)
         {
-            if(this.movies.remove(this.movies.get(i)))
+            if(this.movies.get(i).getId() == id)
             {
-
+                return this.movies.remove(this.movies.get(i));
             }
         }
         return false;

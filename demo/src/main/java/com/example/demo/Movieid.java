@@ -34,7 +34,7 @@ public class Movieid
             return false;
         }
         Movieid toCompare = (Movieid) object;
-        return this.name.equals(toCompare.name) && this.genre.equals(toCompare.genre);
+        return this.name.equals(toCompare.name) && this.genre.equals(toCompare.getGenre());
     }
 
 }

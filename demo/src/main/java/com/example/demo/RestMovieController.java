@@ -36,11 +36,11 @@ public class RestMovieController
         return ResponseEntity.ok(this.movieDao.getAll());
     }
     @PutMapping("/updateMovie")
-    public ResponseEntity<String> updateMovie()
+    public ResponseEntity<String> updateMovie(@PathVariable long movieid)
     {
-        return ResponseEntity.ok("Update");
+        return ResponseEntity.ok("eeee");
     }
-    @DeleteMapping("/deleteMovie")
+    @DeleteMapping("/deleteMovie/{movieid}")
     public ResponseEntity<Boolean> deleteMovie(@PathVariable long movieid)
     {
         return ResponseEntity.ok(this.movieDao.deleteMovies(movieid));
